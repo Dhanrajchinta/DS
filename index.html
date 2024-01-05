@@ -226,9 +226,6 @@ from scipy.stats import zscore
 import warnings
 # Filter out future warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
-print("---------------------------")
-print("KFMSCIT007 - Dhanraj Chinta")
-print("---------------------------")
 
 # Create a DataFrame from the dictionary
 df = pd.read_csv("/content/WIPRO.NS.csv")
@@ -257,9 +254,7 @@ print("number of rows removed: ",removed_rows)`;
         var text5 = `
     from scipy.stats  import ttest_1samp
 import numpy as np
-print("---------------------------")
-print("KFMSCIT007 - Dhanraj Chinta")
-print("---------------------------")
+
 age = [45,89,23,46,12,69,45,24,34,67]
 print ("age",age)
 m1 = np.mean(age) #calculating mean
@@ -272,9 +267,7 @@ if P_value < 0.05:
   print("we reject the hypothesis")
 else:
   print("we accept the hypothesis")
-print("---------------------------")
-print("KFMSCIT007 - Dhanraj Chinta")
-print("---------------------------")
+
 
 """Hypothesis Testing Two data set"""
 
