@@ -45,6 +45,7 @@
     <button onclick="copyText(text6)">Machine Learning</button>
     <button onclick="copyText(text7)">Correlation and Regression Analysis</button>
     <button onclick="copyText(text8)">Univariate and Bivariate Data Analysis</button>
+    <button onclick="copyText(text9)">Data Storage Tools</button>
     <p id="copiedMsg"></p>
     <script>
         var text1 = `import numpy as np
@@ -505,7 +506,42 @@ plt.show()
 
 sns.barplot(df, x="Species", y="SepalLengthCm")
 plt.show()`;
+    var text9 = `
+    Cassandra Storage Tool
+    START
+    
+    Java v1.8/8 - Java -version 
+    Python v2.7 - Python –version 
+    cassandra v3.11 - Cassandra -v 
+    
+    In a Command Prompt -> 'Cassandra -f' //to start the Cassandra
 
+    
+    In another Command Promt -> cqlsh -> Clck ENTER
+    CREATE KEYSPACE <YourDBName> WITH replication = {'class': 'SimpleStrategy','replication_factor':1} //To create Keyspace -> Clck ENTER
+    USE <YourDBName> -> Clck ENTER
+
+    CREATE TABLE student(
+    student_id int PRIMARY KEY, 
+    student_name text,  
+    student_phone varint );
+
+    //Insert 
+    //Enter Several Data using this Syntax
+    INSERT INTO <tablename> (<column1 name>, <column2 name>....)VALUES (<value1>, <value2>....) 
+
+    //SELECT
+    SELECT FROM <tablename> // All rows and columns
+    SELECT FROM <table name> WHERE <condition>; // only rows and columns that meet the condition e.g ... WHERE student_id = 2
+
+    //Update
+    UPDATE <tablename>SET <column1 name> = <new value>,<column2 name> = <value>....WHERE student_id = 2
+
+    //Delete
+    DELETE FROM <identifier> WHERE <condition>; 
+
+    END
+    `;
         function copyText(text) {
             navigator.clipboard.writeText(text).then(function () {
                 document.getElementById('copiedMsg').innerHTML = "Text Copied"
