@@ -353,22 +353,75 @@ print(r_squared)
 
 """# *Group 2*"""
 
+# for same sector companies
+from scipy.stats import stats
+from scipy import stats as st
 import pandas as pd
-import numpy as np
-from scipy import stats
-
-df = pd.read_csv("/content/WIPRO.NS.csv",usecols=['Date','Close'],nrows = 100)
-df[['Close']] = df[['Close']].round()
-# Convert the 'Date' column to timestamp
-df['Date'] = pd.to_datetime(df['Date']).astype(int) // 10**9
-# y = pd.read_csv("/content/INFY.NS.csv",usecols=['Close'],nrows = 100)
-x = df['Date'].values
-y = df['Close'].values
-print(x)
-print(y)
-
-c = stats.pearsonr(x,y)[0]
-print(c)`;
+import warnings
+# Suppress warnings
+warnings.filterwarnings("ignore")
+com1= pd.read_csv("INFY.NS.csv")
+com2= pd.read_csv("TCS.NS.csv")
+# -----------------------correlation--------------------------
+c = st.pearsonr(com1['Close'],com2['Close'])[0]
+print(c)
+if (c > 0.7):
+print('strong positive correlation')
+elif(c > 0.4):
+print("moderate correlation")
+elif(c > 0):
+print("weak positive correlation")
+elif(c < 0 and c >= -0.4):
+print("moderate negative")
+elif (c > -0.7):
+print('strong negative correlation')
+#---------------------------------simple linear regression------------------------------
+m = stats.linregress(com1['Close'],com2['Close'])
+print("simple linear regression",m)
+#-------------------------------extract linear regression coefficient--------------------------------------------------
+s = m.slope
+print("slope",s)
+i = m.intercept
+print("extract linear regression coefficient",i)
+pred_y = s*com1['Close']+i
+r_squared = m.rvalue
+print("rsquare",r_squared)
+# for different sector companies
+import pandas as pd
+from scipy.stats import stats
+Com1=pd.read_csv("MANKIND.NS.csv")
+Com2=pd.read_csv("INFY.NS.csv")
+t_test,p_value=stats.ttest_ind(Com1['Close'],Com2['Close'])
+print(p_value)
+if p_value < 0.05:
+print("fits in portfolio")
+else:
+print("does not fit in portfolio")
+# -----------------------corelation--------------------------
+c = st.pearsonr(com1['Close'],com2['Close'])[0]
+print(c)
+if (c > 0.7):
+print('strong positive correlation')
+elif(c > 0.4):
+print("moderate correlation")
+elif(c > 0):
+print("weak positive correlation")
+elif(c < 0 and c >= -0.4):
+print("moderate negative")
+elif (c > -0.7):
+print('strong negative correlation')
+#---------------------------------simple linear regression------------------------------
+m = stats.linregress(com1['Close'],com2['Close'])
+print("simple linear regression",m)
+#-------------------------------extract linear regression coefficient--------------------------------------------------
+s = m.slope
+print("slope",s)
+i = m.intercept
+print("extract linear regression coefficient",i)
+pred_y = s*com1['Close']+i
+r_squared = m.rvalue
+print("rsquare",r_squared)
+`;
         var text8 = `
     import numpy as np
 import matplotlib.pyplot as plt
