@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy Text Buttons</title>
+    <style>
+        button {
+            margin: 5px;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            /* Light gray background */
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #ddd;
+            /* Light gray button background */
+            border: 1px solid #aaa;
+            /* Dark gray border */
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ccc;
+            /* Slightly darker background on hover */
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="copyText(text1)"">Matrix Operation</button>
+  <button onclick=" copyText(text2)">Probability Distributions </button>
+    <button onclick="copyText(text3)">Measures of Central Tendency </button>
+    <button onclick="copyText(text4)">Data Cleaning and Manipulation</button>
+    <button onclick="copyText(text5)">Hypothesis Testing </button>
+    <button onclick="copyText(text6)">Machine Learning</button>
+    <button onclick="copyText(text7)">Correlation and Regression Analysis</button>
+    <button onclick="copyText(text8)">Univariate and Bivariate Data Analysis</button>
+    <p id="copiedMsg"></p>
+    <script>
+        var text1 = `import numpy as np
+from numpy.linalg import inv
+from numpy.linalg import det
+
+#creating Single dimensional array
+v1= np.array([1,2,3])
+v2= np.array([4,5,6])
+print("v1",v1)
+print("v2",v2)
+
+#addition of the matrices (i.e v1 & v2)
+r1= v1+v2
+print("Addition :",r1)
+
+#subtraction
+r1= v1-v2
+print("Subtraction :",r1)
+
+# Multiplication
+r1= np.dot(v1,v2)
+print("Multipliation :",r1)
+
+#Two Dimensional matrix(2x2)
+m1 = np.array([[1,2],[3,4]])
+print("m1 \n",m1)
+m2 = np.array([[5,6],[7,8]])
+print("\nm2 \n",m2)
+
+#Addition
+r2= m1+m2
+print("Addition :\n",r2)
+
+#Subtraction
+r2= m1-m2
+print("Subtraction :\n",r2)
+
+#Multiplication
+r2= np.dot(m1,m2)
+print("Multiplication:\n",r2)
+
+#Transpose
+T1=m1.transpose()
+print("Transpose:\n",T1)
+
+#Inverse
+iv= inv(m1)
+print("Inversion:\n",iv)
+
+#Determinant
+de= det(m1)
+print("Determinant: ",de)
+    `;
+        var text2 = `import numpy as np
+import matplotlib.pyplot as plt
+
+# set a random seed number for reproduce
+a = np.random.seed(0)
+
+# generate random sample from a normal distribution
+mean= 0
+std_dev= 1
+num_sample =100
+normal_sample = np.random.normal(mean, std_dev, num_sample)
+
+# generate a random sample from a uniform distribution
+low=0
+high = 1
+uniform_sample = np.random.uniform(low, high, num_sample)
+
+# Create subplots with two columns
+fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+# Histogram for Normal Distribution
+axes[0].hist(normal_sample, bins=20, color='red')
+axes[0].set_title("Normal Distribution")
+
+# Histogram for Uniform Distribution
+axes[1].hist(uniform_sample, bins=20, color='red')
+axes[1].set_title("Uniform Distribution")
+
+plt.show()`;
+        var text3 = `
+    data = [1,2,3,4,5]
+m1 = sum(data)/len(data)
+print(m1)
+
+import numpy as np
+data1 = np.array([1,2,3,4,5])
+m1 = np.mean(data1)
+print(m1)
+
+import statistics as st
+dd = [1,2,3,4,5]
+m2 = st.median(data)
+print(m2)
+
+import statistics as st
+data = [1,2,3,3,3,4,4,4,4]
+m3 = st.mode(data)
+print(m3)
+
+import pandas as pd
+data = pd.read_csv("Employee.csv")
+print("file read succefull")
+#calculate mean
+print(data.mean())
+print("------------------")
+print(data.median())
+print("------------------")
+print(data.mode())
+
+#range,variance,standard deviation
+import pandas as pd
+data = pd.read_csv("Employee.csv")
+print("file read succefull")
+#calculate variance
+print(data.var())#variance
+print("------------------")
+print(data.std())#standard deviation
+
+#how to calculate dispersion measure for data set
+import numpy as np
+#sample data
+data1 = np.array([10,12,15,18,20])
+data2 = np.array([5,8,9,12,14])
+range_data1 = np.ptp(data1)
+range_data2 = np.ptp(data2)#range finder
+print(range_data1)
+print(range_data2)
+std1 = np.std(data1)
+std2 = np.std(data2)
+var1 = np.var(data1)
+var2 = np.var(data2)
+print(std1)
+print(std2)
+print(var1)
+print(var2)
+c1 = np.cov(data1,data2)[0,1]
+print(c1)
+
+#how to calculate co-variance
+import numpy as np
+#sample data
+data1 = np.array([10,12,15,18,20])
+data2 = np.array([5,8,9,12,14])
+c1 = np.cov(data1,data2)[0,1]
+print(c1)
+#covariance matrix
+d5 = np.array([data1,data2])
+d6 = np.cov(d5)
+print(d6)`;
+        var text4 = `
+    import pandas as pd
+import numpy as np
+from scipy import stats
+from scipy.stats import zscore
+import warnings
+# Filter out future warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
+print("---------------------------")
+print("KFMSCIT007 - Dhanraj Chinta")
+print("---------------------------")
+
+# Create a DataFrame from the dictionary
+df = pd.read_csv("/content/WIPRO.NS.csv")
+df.head(5)
+
+#finding the shape of the dataframe and number of null values in it
+og_shape = df.shape
+print("shape = ",og_shape)
+df.isnull().sum()
+
+# Replace null values with the mean of each column
+m = df.mean()
+print("Mean\n",m)
+df.fillna(m, inplace=True)
+df.isnull().sum()
+
+# Identify and remove outliers using Z-score
+z_scores = zscore(df[['Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']])
+df_no_outliers = df[(z_scores < 3).all(axis=1)]
+
+# Display the modified number of rows
+removed_rows = og_shape[0] - df_no_outliers.shape[0]
+print(og_shape)
+print(df_no_outliers.shape)
+print("number of rows removed: ",removed_rows)`;
+        var text5 = `
+    from scipy.stats  import ttest_1samp
+import numpy as np
+print("---------------------------")
+print("KFMSCIT007 - Dhanraj Chinta")
+print("---------------------------")
+age = [45,89,23,46,12,69,45,24,34,67]
+print ("age",age)
+m1 = np.mean(age) #calculating mean
+print("Mean of age",m1)
+
+T_test ,P_value = ttest_1samp(age,30) #finding Ttest & pvalue
+print(P_value)
+
+if P_value < 0.05:
+  print("we reject the hypothesis")
+else:
+  print("we accept the hypothesis")
+print("---------------------------")
+print("KFMSCIT007 - Dhanraj Chinta")
+print("---------------------------")
+
+"""Hypothesis Testing Two data set"""
+
+from scipy.stats  import ttest_ind
+import numpy as np
+
+subjectA = [10,14,15,18,16,15,17,18,10,19]
+subjectB = [17,14,15,18,16,14,13,11,17,19]
+
+t_test , p_value = ttest_ind(subjectA,subjectB)
+print(p_value)
+
+alpha = 0.05
+if p_value < alpha:
+  print("there is a signaficant difference between them accept ")
+else:
+  print("there is no signaficant difference between them reject")`;
+        var text6 = `
+    import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
+import warnings
+
+data = pd.read_csv("/content/Iris.csv")
+data.head(5)
+
+#split the data
+X = data[['SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidthCm']]
+Y = data[['Species']]
+X_Train,X_Test,Y_Train,Y_Test = train_test_split(X,Y,test_size = 0.3)
+
+#fitting the training data into the model
+model = LogisticRegression()
+model.fit(X_Train,Y_Train)
+
+#predicting finding the accuracy of the prediction
+pred = model.predict(X_Test)
+accuracy = accuracy_score(Y_Test,pred)
+print(accuracy)`;
+        var text7 = `
+    import pandas as pd
+import numpy as np
+from scipy import stats
+
+df = pd.read_csv("/content/sample.csv")
+#select the variable
+x = df['TCS']
+y = df['Wipro']
+df.head(5)
+
+#calculate the Correlation coefficient
+c = stats.pearsonr(x,y)[0]
+print(c)
+
+#printing the strength of the correlation
+if (c > 0.7):
+  print('strong positive correlation')
+elif(c > 0.4):
+  print("moderate correlation")
+elif(c > 0):
+  print("weak positive correlation")
+elif(c < 0 and c >= -0.4):
+  print("moderate negative")
+elif (c > -0.7):
+  print('strong negative correlation')
+
+#simple linear regression
+m = stats.linregress(x,y)
+print("Slope: {:.2f}".format(m.slope))
+print("Intercept: {:.2f}".format(m.intercept))
+print("R-value (Correlation Coefficient): {:.2f}".format(m.rvalue))
+
+#extract linear regression coefficient
+s = m.slope
+print(s)
+i = m.intercept
+print(i)
+
+pred_y = s * x + i
+r_squared = m.rvalue
+print(r_squared)
+
+"""# *Group 2*"""
+
+import pandas as pd
+import numpy as np
+from scipy import stats
+
+df = pd.read_csv("/content/WIPRO.NS.csv",usecols=['Date','Close'],nrows = 100)
+df[['Close']] = df[['Close']].round()
+# Convert the 'Date' column to timestamp
+df['Date'] = pd.to_datetime(df['Date']).astype(int) // 10**9
+# y = pd.read_csv("/content/INFY.NS.csv",usecols=['Close'],nrows = 100)
+x = df['Date'].values
+y = df['Close'].values
+print(x)
+print(y)
+
+c = stats.pearsonr(x,y)[0]
+print(c)`;
+        var text8 = `
+    import numpy as np
+import matplotlib.pyplot as plt
+from statistics import mean,median,mode
+
+#creating a dataset
+examScore = [35,28,32,45,22,18,42,36,26,50] #5th 20-> 22 2nd 28 ->18
+
+#calculate mean median mode
+avg1 = mean(examScore)
+med = median(examScore)
+Mode = mode(examScore)
+print(avg1)
+print(med)
+print(Mode)
+
+#create a histogram to visualise marks
+plt.hist(examScore,bins = 10,edgecolor = 'k',alpha = 0.6)
+plt.xlabel("Exam Score")
+plt.ylabel("Frequency")
+plt.title("Histogram of Exam Score")
+plt.show()
+
+#working with Bi-Variant
+import pandas as pd
+#create a bi-variant data set
+data = pd.DataFrame({"Height":[165,165,70,180,185],"Weight":[60,65,70,75,65]})
+#print the data set
+data.info()
+data.shape
+data.head()
+data.describe()
+
+#create Scatter plot
+plt.scatter(data["Height"],data["Weight"])
+#add label to the axis
+plt.xlabel("Height")
+plt.ylabel("Weight")
+plt.title("Scatter Plot of Height And Weight")
+plt.show()
+
+#Working with iris data set using univariant
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+#load the Data set
+df = pd.read_csv("/content/Iris.csv")
+print(df)
+df.describe()
+
+#display uni variant data using histogram
+sns.set(style="whitegrid")
+plt.figure(figsize=(12,6))
+#sepal length
+plt.subplot(1,2,1)
+sns.histplot(df['SepalLengthCm'],color = "darkorange")
+plt.title("Sepal Length")
+# sapel width
+plt.subplot(2,2,2)
+sns.histplot(df["SepalWidthCm"],color='darkorange')
+plt.title("sapel width")
+# petal length
+plt.subplot(2,2,3)
+sns.histplot(df["PetalLengthCm"],color='darkorange')
+plt.title("petal length")
+plt.show()
+
+#using histogram to display univariate for categorial Variable
+sns.histplot(x = 'SepalLengthCm',data = df,hue = df['Species'])
+
+#vertical Histogram
+sns.histplot(df,y = "SepalLengthCm",color = 'magenta')
+
+sns.boxplot(df["SepalLengthCm"],color = 'green')
+plt.show
+df["SepalLengthCm"].describe()
+
+# count plot is used for distribution of categorial variable
+sns.countplot(df,x='Species')
+plt.show()
+
+sns.barplot(df, x="Species", y="SepalLengthCm")
+plt.show()`;
+
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(function () {
+                document.getElementById('copiedMsg').innerHTML = "Text Copied"
+            }).catch(function (err) {
+                console.error('Unable to copy text', err);
+            });
+        }
+    </script>
+
+</body>
+
+</html>
