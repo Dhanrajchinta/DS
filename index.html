@@ -541,6 +541,28 @@ plt.show()`;
     DELETE FROM <identifier> WHERE <condition>; 
 
     END
+
+    Spark
+    START
+    JSON File
+    {"name":"", "age":, "Birthday Month": ""}
+    {"name":"", "age":, "Birthday Month": ""}
+    Command to start: spark-shell
+    
+    Commands:
+    val x = spark.read.json("Path/filename.json")
+
+x.show()
+
+x.filter($”age<21”).show()
+
+x.filter(col("Birthday Month").contains("October")).show()
+
+tempdataframe.createOrReplaceTempView("sample")
+
+spark.sql("select * from sample where age > 20").show()
+
+END
     `;
         function copyText(text) {
             navigator.clipboard.writeText(text).then(function () {
