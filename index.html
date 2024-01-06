@@ -418,7 +418,7 @@ int test_pw()
 
 char pin[10];
 
-int x = 15, 1;
+int x = 15, i;
 
 printf("Enter Password:"); scanf("%s", pin); for(i = 0; i < 10; i += 2) x = (x & pin[i]) | pin [i+1]; if (x > 48)
 
