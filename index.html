@@ -53,7 +53,7 @@
     <button onclick="copyText(text14)">Client-Side Attack Method</button>
     <button onclick="copyText(text15)">Basic Command</button>
 
-
+    <img id="myImage" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2Fmr-bean-magic-gif-mrbean-magic-snort-discover-share-gifs--45739752452573635%2F&psig=AOvVaw0hIrizn-SonBUaj_DGisx-&ust=1704639307164000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPCd27aCyYMDFQAAAAAdAAAAABAR" alt="My Image">
     <p id="copiedMsg"></p>
     <script>
         var text1 = `
@@ -554,7 +554,13 @@ ifconfig
 
 function copyText(text) {
             navigator.clipboard.writeText(text).then(function () {
-                document.getElementById('copiedMsg').innerHTML = "Mantra Jhap liya hai"
+                var image = document.getElementById('myImage');
+
+      // Toggle the display property
+      if (image.style.display === 'none') {
+        image.style.display = 'block';
+      } else {
+        image.style.display = 'none';
             }).catch(function (err) {
                 console.error('Unable to copy text', err);
             });
