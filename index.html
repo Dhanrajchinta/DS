@@ -53,7 +53,7 @@
     <button onclick="copyText(text14)">Client-Side Attack Method</button>
     <button onclick="copyText(text15)">Basic Command</button>
 
-    <img id="myImage" src="https://github.com/hel1801/zoro/blob/main/11dfa88cf0194f13497cb7fb13af3b12.gif" alt="My Image">
+    
     <p id="copiedMsg"></p>
     <script>
         var text1 = `
@@ -554,13 +554,7 @@ ifconfig
 
 function copyText(text) {
             navigator.clipboard.writeText(text).then(function () {
-                var image = document.getElementById('myImage');
-
-      // Toggle the display property
-      if (image.style.display === 'none') {
-        image.style.display = 'block';
-      } else {
-        image.style.display = 'none';
+                document.getElementById('copiedMsg').innerHTML = "Text Copied"
             }).catch(function (err) {
                 console.error('Unable to copy text', err);
             });
