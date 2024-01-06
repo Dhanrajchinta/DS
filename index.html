@@ -562,6 +562,14 @@ tempdataframe.createOrReplaceTempView("sample")
 
 spark.sql("select * from sample where age > 20").show()
 
+
+
+EXTRA 
+val a spark.read.options (Map("inferSchema"->"true", "header"->"true")).csv("C:/Users/Hp/Downloads/sql.csv")
+
+a.show()
+
+a.filter($"Rollno"<20).show()
 END
     `;
         function copyText(text) {
