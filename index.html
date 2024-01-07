@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Copy Text Buttons</title>
+    <title>Translate Quote</title>
 </head>
 <body>
-    <h1 style="margin-top: 25pc;text-align: center;">"नकल करना एक शॉर्टकट है, मामूली प्रयास से मेहनत नहीं। असली सफलता के लिए कसरत करो, नहीं तो आलस्यपूर्ण बुद्धिमत्ता के परिणामों को सहना पड़ेगा।"</h1>
+
+<p id="hindiQuote">नकल करना एक शॉर्टकट है, मामूली प्रयास से मेहनत नहीं। असली सफलता के लिए कसरत करो, नहीं तो आलस्यपूर्ण बुद्धिमत्ता के परिणामों को सहना पड़ेगा।</p>
+
+<button onclick="translateToEnglish()">Translate to English</button>
+
+<script>
+    function translateToEnglish() {
+        const hindiQuote = document.getElementById("hindiQuote").innerText;
+        const translatedText = encodeURIComponent(hindiQuote);
+        window.open(`https://translate.google.com/?sl=hi&tl=en&text=${translatedText}`, "_blank");
+    }
+</script>
+
 </body>
 </html>
