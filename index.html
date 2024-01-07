@@ -36,7 +36,8 @@
 </head>
 
 <body>
-
+    <h1>Not This Time Bruh....</h1>
+<!--
     <button onclick="copyText(text1)">1D simple parity-check</button>
     <button onclick="copyText(text2)">2D Double Parity</button>
     <button onclick="copyText(text3)">Remotely Accessing Kali Terminal using Putty</button>
@@ -65,27 +66,27 @@
         # sum of initialized sequence
         sum_seq = sum(seq)
         
-        # calculated parity bit ---> 1 (since the sum is odd)
+        # calculated parity bit -> 1 (since the sum is odd)
         pari_bit = 0 if sum_seq % 2 == 0 else 1
         
-        # sequence with added parity bit ---> [1,0,1,0,1,0,1]
+        # sequence with added parity bit -> [1,0,1,0,1,0,1]
         bin_pari = seq + [pari_bit]
         
-        # print the original sequence ---> [1,0,1,0,1,0]
+        # print the original sequence -> [1,0,1,0,1,0]
         print("Original Sequence:",''.join(map(str,seq)))
         print("Sequence with parity:",''.join(map(str,bin_pari)))
         
         # modify sequence at index 2
         bin_pari[2] = 0    # shows data corrupted
         
-        # retrive re-calculated parity bit ---> 1 (unchanged)
+        # retrive re-calculated parity bit -> 1 (unchanged)
         # calculate the last parity bit (element) of a list
         rec_pari = bin_pari[-1]
         
-        # retrive remaining data ---> [1,0,1,0,1,0] (unchanged)
+        # retrive remaining data -> [1,0,1,0,1,0] (unchanged)
         rec_data = bin_pari[:-1]
         
-        # calculate remaining sum of data --> rec_sum = 3
+        # calculate remaining sum of data -> rec_sum = 3
         rec_sum = sum(rec_data)
         
         # check data intigrity
@@ -571,7 +572,7 @@ function copyText(text) {
             });
         }
     </script>
-
+-->
 </body>
 
 </html>
