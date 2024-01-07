@@ -3,20 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modify Quote</title>
+    <title>Toggle Quote</title>
 </head>
 <body>
 
-<p id="quote" style ="margin-top: 20pc;text-align: center; ">नकल करना एक शॉर्टकट है, मामूली प्रयास से मेहनत नहीं। असली सफलता के लिए कसरत करो, नहीं तो आलस्यपूर्ण बुद्धिमत्ता के परिणामों को सहना पड़ेगा।</p>
+<p id="quote" style = "margin-top:20pc;text-align:center ">नकल करना एक शॉर्टकट है, मामूली प्रयास से मेहनत नहीं। असली सफलता के लिए कसरत करो, नहीं तो आलस्यपूर्ण बुद्धिमत्ता के परिणामों को सहना पड़ेगा।</p>
 
-<button onclick="modifyText()">Click For A Surprise...!</button>
+<button onclick="toggleQuote()" style="left:50%">Toggle Quote</button>
 
 <script>
-    function modifyText() {
+    let isModified = false;
+
+    function toggleQuote() {
         const quoteElement = document.getElementById("quote");
 
-        // Set the modified text to the quote element
-        quoteElement.innerText = "Copying is a shortcut, not hard work with modest effort. Train for real success, or suffer the consequences of lazy intelligence.";
+        if (isModified) {
+            // If quote is modified, reset to original
+            quoteElement.innerText = "नकल करना एक शॉर्टकट है, मामूली प्रयास से मेहनत नहीं। असली सफलता के लिए कसरत करो, नहीं तो आलस्यपूर्ण बुद्धिमत्ता के परिणामों को सहना पड़ेगा।";
+        } else {
+            // If quote is not modified, add " - Modified"
+            const currentText = quoteElement.innerText;
+            quoteElement.innerText = "Copying is a shortcut, not hard work with modest effort. Train for real success, or suffer the consequences of lazy intelligence.";
+        }
+
+        // Toggle the state
+        isModified = !isModified;
     }
 </script>
 
