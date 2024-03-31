@@ -1,97 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toggle Quote</title>
-    <style>
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
-        }
-
-        .centered-container {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .creative-button {
-            display: block;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-            border: 2px solid #3498db;
-            color: #3498db;
-            border-radius: 5px;
-            overflow: hidden;
-            position: relative;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .creative-button:hover {
-            background-color: #3498db;
-            color: #fff;
-        }
-
-        .creative-button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background-color: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s, height 0.3s;
-        }
-
-        .creative-button:hover::before {
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+    <title>Gym Workout Tracker</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <div class="centered-container">
-        <p id="quote" style="font-size: larger;">नकल करना एक शॉर्टकट है, मामूली प्रयास से मेहनत नहीं।
-            असली सफलता के लिए कसरत करो, नहीं तो आलस्यपूर्ण बुद्धिमत्ता के परिणामों को सहना पड़ेगा।
-        </p>
-        <button onclick="toggleQuote()" class="creative-button">Click For A Surprise..!</button>
+    <div class="container">
+        <h1>Gym Workout Tracker</h1>
+        <div id="calendar"></div>
     </div>
-
-
-
-    <script>
-        let isModified = false;
-
-        function toggleQuote() {
-            const quoteElement = document.getElementById("quote");
-
-            if (isModified) {
-                // If quote is modified, reset to original
-                quoteElement.innerText = "नकल करना एक शॉर्टकट है, मामूली प्रयास से मेहनत नहीं। असली सफलता के लिए कसरत करो, नहीं तो आलस्यपूर्ण बुद्धिमत्ता के परिणामों को सहना पड़ेगा।";
-            } else {
-                // If quote is not modified, add " - Modified"
-                const currentText = quoteElement.innerText;
-                quoteElement.innerText = "Copying is a shortcut, not hard work with modest effort. Train for real success, or suffer the consequences of lazy intelligence.";
-            }
-
-            // Toggle the state
-            isModified = !isModified;
-        }
-    </script>
-
+    <script src="script.js"></script>
 </body>
-
 </html>
