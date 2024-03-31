@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
         'Sunday': ['Rest']
     };
 
-    const calendarDiv = document.getElementById('calendar');
+    const calendarDiv = document.querySelector('.calendar');
 
     daysOfWeek.forEach(day => {
         const dayDiv = document.createElement('div');
